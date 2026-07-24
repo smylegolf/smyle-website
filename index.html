@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smyle® — New Ways to Play — Barcelona</title>
+<meta name="description" content="Club de golf urbano en el centro de Barcelona. Simuladores Uneekor, juego corto, comunidad.">
+<style>
+
+/* ─── FONTS ───────────────────────────────────────────── */
+@font-face { font-family:'EN'; src:url('fonts/PPEditorialNew-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'EN'; src:url('fonts/PPEditorialNew-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'EN'; src:url('fonts/PPEditorialNew-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'EN'; src:url('fonts/PPEditorialNew-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-BoldItalic.woff2') format('woff2'); font-weight:700; font-style:italic; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-Book.woff2') format('woff2'); font-weight:450; font-style:normal; font-display:swap; }
+@font-face { font-family:'NM'; src:url('fonts/PPNeueMontreal-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+
+/* ─── RESET ───────────────────────────────────────────── */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:62.5%; scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body {
+  font-family: 'NM','Helvetica Neue',sans-serif;
+  font-weight: 400;
+  background: #3E2509;
+  color: #EEE4D6;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
+
+/* ─── VARIABLES ───────────────────────────────────────── */
+:root {
+  --bg:    #3E2509;
+  --text:  #EEE4D6;
+  --mid:   #B08860;
+  --faint: #8A6A42;
+  --dark:  #240F02;
+  --nav-h: 56px;
+  --pad:   52px;
+}
+
+/* ─── NAV ─────────────────────────────────────────────── */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: var(--bg);
+  height: var(--nav-h);
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  padding: 0 var(--pad);
+  align-items: center;
+}
+.nc {
+  display: flex; flex-direction:column; justify-content:center;
+  overflow: hidden;
+}
+.nc:last-child { align-items:flex-end; }
+.nl {
+  font-family: 'NM',sans-serif;
+  font-size: 1.15rem; font-weight:450;
+  color: var(--text); line-height:1.4;
+  display: block;
+  white-space: nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.nl-m { color: var(--mid); }
+.ncta { font-weight:700; letter-spacing:.04em; }
+
+/* ─── HERO ────────────────────────────────────────────── */
+.hero {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+  display: flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align: center;
+  padding-left: var(--pad); padding-right: var(--pad);
+  padding-bottom: 56px;
+}
+
+/* H1 — Large italic serif */
+.hero-h1 {
+  display: block;
+  font-family: 'EN','Georgia',serif;
+  font-weight: 500;
+  font-style: italic;
+  line-height: .88;
+  letter-spacing: -.02em;
+  color: var(--text);
+  font-size: clamp(6rem, 11vw, 16rem);
+}
+
+/* H2 — Same serif, upright, slightly smaller */
+.hero-h2 {
+  display: block;
+  font-family: 'EN','Georgia',serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: .92;
+  letter-spacing: -.015em;
+  color: var(--text);
+  font-size: clamp(4.5rem, 8.2vw, 12rem);
+  margin-top: .06em;
+}
+
+/* H3 — Small sans-serif caps */
+.hero-h3 {
+  display: block;
+  font-family: 'NM',sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.3vw, 1.7rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-top: 44px;
+}
+
+.hero-sub {
+  margin-top: 36px;
+  display: flex; gap: 24px; flex-wrap:wrap; justify-content:center;
+  font-family: 'NM',sans-serif;
+  font-size: 1.3rem; font-weight:500;
+  color: var(--mid);
+  letter-spacing: .2em; text-transform:uppercase;
+}
+
+/* ─── INFO SECTION ────────────────────────────────────── */
+.info {
+  display: grid;
+  grid-template-columns: 14fr 20fr 20fr 30fr 16fr;
+  padding: 72px var(--pad) 96px;
+  gap: 36px;
+  align-items: start;
+}
+.i-label {
+  font-size: 1.1rem; font-weight:500; color: var(--mid);
+  letter-spacing:.16em; text-transform:uppercase;
+  display:block; margin-bottom:20px;
+}
+.i-text {
+  font-size: 1.4rem; font-weight:400;
+  color: var(--text); line-height:1.7;
+}
+.i-text-m { color: var(--mid); }
+.i-link {
+  display:block; font-size:1.4rem; font-weight:400;
+  color: var(--text); line-height:2.0;
+  transition: color .2s;
+}
+.i-link:hover { color: #fff; }
+.i-link-m { color: var(--mid); }
+.i-gap { height: 24px; }
+.i-em {
+  font-family: 'EN',serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 3.6vw, 5.4rem);
+  line-height: 1.06;
+  color: var(--text);
+  display: block;
+  margin-bottom: 22px;
+}
+.i-listing { margin-bottom: 18px; }
+.i-listing a { display:block; transition: opacity .2s; }
+.i-listing a:hover { opacity:.5; }
+.i-ltitle {
+  font-size: 1.25rem; font-weight:700;
+  color: var(--text); display:block; line-height:1.3;
+}
+.i-lmeta {
+  font-size: 1.15rem; font-weight:400;
+  color: var(--mid); display:block; line-height:1.5;
+}
+.i-track-label {
+  font-size: 1.0rem; font-weight:500; color: var(--faint);
+  letter-spacing:.14em; text-transform:uppercase;
+  display:block; margin: 16px 0 10px;
+}
+.i-track-label:first-of-type { margin-top: 0; }
+
+/* ─── HOW IT WORKS ───────────────────────────────────── */
+.hiw {
+  padding: 96px var(--pad) 96px;
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  gap: 72px;
+  align-items: start;
+  border-top: 1px solid rgba(238,228,214,.1);
+}
+.hiw-intro .i-em { margin-bottom: 16px; }
+.hiw-intro .i-text-m { font-size:1.35rem; line-height:1.7; }
+.hiw-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px 36px;
+}
+.hiw-step {}
+.hiw-n {
+  display: block;
+  font-family: 'EN',serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.8rem, 3.5vw, 5rem);
+  color: var(--faint);
+  line-height: 1;
+  margin-bottom: 14px;
+  opacity: .7;
+}
+.hiw-title {
+  display: block;
+  font-family: 'NM',sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.hiw-body {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--mid);
+  line-height: 1.65;
+}
+.hiw-cta {
+  margin-top: 56px;
+  grid-column: 1 / -1;
+}
+.hiw-cta a {
+  display: inline-block;
+  font-size: 1.2rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--text); padding: 14px 28px;
+  border: 1px solid rgba(238,228,214,.35);
+  transition: background .2s, color .2s;
+}
+.hiw-cta a:hover { background:var(--text); color:var(--bg); }
+
+/* ─── IMAGE BLOCKS ────────────────────────────────────── */
+.img-wrap {
+  padding: 0 var(--pad);
+  margin-bottom: 12px;
+}
+.img-block {
+  width: 100%;
+  background: var(--dark);
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 11.11% 20%;
+  position: relative;
+  aspect-ratio: 16/10;
+}
+.img-block::after {
+  content: attr(data-label);
+  position:absolute;
+  bottom: 16px; left: 20px;
+  font-family:'NM',sans-serif;
+  font-size:.9rem; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:rgba(255,255,255,.14);
+}
+.img-caption {
+  padding: 12px 0 0;
+  font-size: 1.2rem; font-weight:400; color: var(--mid);
+  font-style: italic;
+}
+.img-caption-c { text-align:center; }
+
+.img-pair {
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding: 0 var(--pad);
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.img-pair-item .img-block { aspect-ratio: 4/5; }
+
+/* ─── EVENTS ──────────────────────────────────────────── */
+.ev-section {
+  padding: 16px var(--pad) 72px;
+}
+.ev-section-label {
+  font-size: 1.1rem; font-weight:500; color: var(--mid);
+  letter-spacing:.16em; text-transform:uppercase;
+  display:block; padding: 24px 0 10px;
+}
+.ev-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 20px 0;
+  border-top: 1px solid rgba(238,228,214,.15);
+  gap: 40px; align-items:baseline;
+}
+.ev-row:last-child { border-bottom: 1px solid rgba(238,228,214,.15); }
+.ev-row:hover .ev-name { font-style:italic; }
+.ev-name {
+  font-family:'EN',serif;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 2.0vw, 2.6rem);
+  color: var(--text); display:block; line-height:1;
+  transition: font-style .1s;
+}
+.ev-detail {
+  font-size: 1.2rem; font-weight:400; color:var(--mid);
+  display:block; margin-top:5px;
+}
+.ev-right { text-align:right; }
+.ev-price {
+  font-family:'NM',sans-serif;
+  font-size: 1.5rem; font-weight:700;
+  color: var(--text); display:block; line-height:1;
+}
+.ev-pnote {
+  font-size: 1.05rem; font-weight:400; color:var(--mid);
+  display:block; margin-top:4px;
+}
+.ev-cta {
+  display:inline-block; margin-top:10px;
+  font-size:.95rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--text); padding: 8px 16px;
+  border: 1px solid rgba(238,228,214,.35);
+  transition: background .2s, color .2s;
+}
+.ev-cta:hover { background:var(--text); color:var(--bg); }
+
+/* ─── FOOTER ──────────────────────────────────────────── */
+.footer {
+  padding: 72px var(--pad) 56px;
+  text-align: center;
+}
+.foot-top {
+  font-size: 1.3rem; font-weight:500;
+  color: var(--text); display:block; margin-bottom:20px;
+  transition: opacity .2s;
+}
+.foot-top:hover { opacity:.5; }
+.foot-body {
+  font-size: 1.2rem; font-weight:400;
+  color: var(--mid); font-style:italic; line-height:2.1;
+}
+
+/* ─── REVEAL ──────────────────────────────────────────── */
+.rv { opacity:0; transform:translateY(14px); transition: opacity .9s cubic-bezier(.4,0,.2,1), transform .9s cubic-bezier(.4,0,.2,1); }
+.rv.in { opacity:1; transform:translateY(0); }
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width:1200px) {
+  .info { grid-template-columns: 1fr 1fr 1fr; }
+  .hiw { grid-template-columns: 1fr; gap: 48px; }
+  .hiw-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width:860px) {
+  :root { --pad: 32px; }
+  .nav { grid-template-columns: repeat(3,1fr); padding: 0 32px; }
+  .nc:nth-child(4) { display:none; }
+  .hero-h1 { font-size: clamp(5rem, 18vw, 12rem); }
+  .hero-h2 { font-size: clamp(3.8rem, 14vw, 9rem); }
+  .info { grid-template-columns: 1fr 1fr; }
+  .img-pair { grid-template-columns: 1fr; gap: 12px; }
+  .hiw-steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width:600px) {
+  :root { --pad: 22px; }
+  .nav { grid-template-columns: repeat(2,1fr); padding: 0 22px; }
+  .nc:nth-child(2), .nc:nth-child(3) { display:none; }
+  .info { grid-template-columns: 1fr; }
+  .hero-h1 { font-size: clamp(4.5rem, 22vw, 10rem); }
+  .hero-h2 { font-size: clamp(3.5rem, 17vw, 8rem); }
+  .ev-row { grid-template-columns: 1fr; gap: 16px; }
+  .ev-right { text-align:left; }
+  .hiw-steps { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════ -->
+<nav class="nav" id="top">
+  <div class="nc">
+    <span class="nl">SMYLE<sup style="font-size:.58em;vertical-align:super;font-weight:500;">®</sup></span>
+    <span class="nl nl-m">Club Urbano BCN</span>
+  </div>
+  <div class="nc">
+    <span class="nl">Lun–Vie 15:00–22:00</span>
+    <span class="nl nl-m">Sáb 11:00–18:00</span>
+  </div>
+  <div class="nc">
+    <a href="mailto:hello@smyle.golf" class="nl">hello@smyle.golf</a>
+    <a href="tel:+34650219335" class="nl nl-m">+34 650 219 335</a>
+  </div>
+  <div class="nc">
+    <a href="https://www.instagram.com/smylegolf" class="nl" target="_blank">Instagram</a>
+    <a href="https://chat.whatsapp.com/KXBfjIHXqWu7QQTnnLhuIE" class="nl nl-m" target="_blank">WhatsApp</a>
+  </div>
+  <div class="nc">
+    <span class="nl ncta" id="clock" style="text-align:right;">00:00:00</span>
+    <a href="https://albaplay.com/en/venue/smyle-golf-barcelona" class="nl nl-m" target="_blank" style="text-align:right;">Reservar ↗</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ════════════════════════════════════════════ -->
+<section class="hero">
+  <div>
+    <span class="hero-h1">New Ways</span>
+    <span class="hero-h2">to Play.</span>
+    <span class="hero-h3">Urban Golf Club · Barcelona</span>
+  </div>
+</section>
+
+<!-- ═══ INFO ═════════════════════════════════════════════ -->
+<section class="info">
+
+  <div class="rv">
+    <span class="i-label">Visítanos</span>
+    <span class="i-text">Calle María Cubí 26<br>08006 Barcelona</span>
+    <div class="i-gap"></div>
+    <span class="i-text i-text-m">Lun–Vie 15–22h<br>Sáb 11–18h<br>Dom Cerrado</span>
+    <div class="i-gap"></div>
+    <a href="mailto:hello@smyle.golf" class="i-link">hello@smyle.golf</a>
+    <a href="tel:+34650219335" class="i-link i-link-m">+34 650 219 335</a>
+    <a href="https://www.instagram.com/smylegolf" class="i-link" target="_blank">Instagram →</a>
+    <a href="https://chat.whatsapp.com/KXBfjIHXqWu7QQTnnLhuIE" class="i-link i-link-m" target="_blank">WhatsApp →</a>
+  </div>
+
+  <div class="rv">
+    <span class="i-label">A — Sobre Smyle</span>
+    <p class="i-text">No somos el club de golf de siempre. Somos golf para quienes nunca creyeron que era lo suyo.</p>
+    <div class="i-gap"></div>
+    <p class="i-text i-text-m">Tres simuladores Uneekor, zona de juego corto y una comunidad que mezcla golf con cultura urbana. Sin dress code. Sin pretensiones. Principiantes siempre bienvenidos.</p>
+  </div>
+
+  <div class="rv">
+    <span class="i-label">B — Los Bays</span>
+    <p class="i-text">Tecnología Uneekor + GSPro. 200+ campos virtuales. Datos de swing en tiempo real.</p>
+    <div class="i-gap"></div>
+    <p class="i-text i-text-m">La Ventana — Privada · 6 pax<br>30€ valle · 60€ punta</p>
+    <div class="i-gap" style="height:10px;"></div>
+    <p class="i-text i-text-m">La Compartida — Social · 4 pax<br>20€ valle · 40€ punta</p>
+    <div class="i-gap" style="height:10px;"></div>
+    <p class="i-text i-text-m">La Esquina — Privada · 4 pax<br>20€ valle · 40€ punta</p>
+    <div class="i-gap"></div>
+    <a href="https://albaplay.com/en/venue/smyle-golf-barcelona" class="i-link" target="_blank" style="font-weight:700;">Reservar cancha →</a>
+  </div>
+
+  <div class="rv">
+    <span class="i-em">Simuladores.<br>Juego Corto.<br>Comunidad.</span>
+    <p class="i-text i-text-m">El primer club de golf urbano de Barcelona. Para todos los niveles — desde quien nunca ha cogido un palo hasta el jugador de hándicap bajo que quiere practicar sin salir de la ciudad. Torneos semanales, eventos mensuales en campo real, y siempre con rollo.</p>
+    <div class="i-gap"></div>
+    <a href="https://albaplay.com/en/venue/smyle-golf-barcelona" class="i-link" target="_blank" style="font-weight:700;">Reservar →</a>
+  </div>
+
+  <div class="rv">
+    <span class="i-label">Membresías</span>
+
+    <p class="i-text" style="margin-bottom:4px;">Elige tu estilo de juego.</p>
+    <p class="i-text i-text-m" style="font-size:1.2rem; line-height:1.6; margin-bottom:20px;">Para quienes quieren conocer gente y jugar en comunidad, o para quienes prefieren privacidad y práctica personal.</p>
+
+    <span class="i-track-label">Social</span>
+    <div class="i-listing">
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/offers/memberships" target="_blank">
+        <span class="i-ltitle">Starter Social</span>
+        <span class="i-lmeta">40€/mes · 2h en bay compartida · 20% dto.</span>
+      </a>
+    </div>
+    <div class="i-listing">
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/offers/memberships" target="_blank">
+        <span class="i-ltitle">Player Social</span>
+        <span class="i-lmeta">70€/mes · 5h en bay compartida · 50% dto.</span>
+      </a>
+    </div>
+
+    <span class="i-track-label">Privada</span>
+    <div class="i-listing">
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/offers/memberships" target="_blank">
+        <span class="i-ltitle">Pro Private</span>
+        <span class="i-lmeta">120€/mes · 10h en bay privada · 70% dto.</span>
+      </a>
+    </div>
+
+    <div class="i-gap"></div>
+    <span class="i-lmeta">Sin permanencia<br>Cancela cuando quieras</span>
+  </div>
+
+</section>
+
+<!-- ═══ HOW IT WORKS ══════════════════════════════════════ -->
+<section class="hiw rv">
+
+  <div class="hiw-intro">
+    <span class="i-label">Cómo funciona</span>
+    <span class="i-em" style="font-size:clamp(2.2rem,3vw,4.2rem);">Seis pasos.<br>Golf, sin<br>complicaciones.</span>
+    <p class="i-text i-text-m">No hace falta ser miembro para reservar. Pero si lo eres, cada hora vale mucho más.</p>
+  </div>
+
+  <div class="hiw-steps">
+
+    <div class="hiw-step">
+      <span class="hiw-n">01</span>
+      <span class="hiw-title">Crea tu cuenta</span>
+      <p class="hiw-body">Regístrate en albaplay.com en un minuto. Gratis, sin tarjeta, sin compromiso.</p>
+    </div>
+
+    <div class="hiw-step">
+      <span class="hiw-n">02</span>
+      <span class="hiw-title">Elige tu membresía</span>
+      <p class="hiw-body">Social para jugar con otros y conocer gente. Privada para práctica personal y privacidad. O reserva sin membresía a tarifa normal.</p>
+    </div>
+
+    <div class="hiw-step">
+      <span class="hiw-n">03</span>
+      <span class="hiw-title">Selecciona fecha y duración</span>
+      <p class="hiw-body">Elige el día y cuánto tiempo quieres jugar. Disponibilidad en tiempo real, reserva al instante.</p>
+    </div>
+
+    <div class="hiw-step">
+      <span class="hiw-n">04</span>
+      <span class="hiw-title">¿Cuántos jugadores?</span>
+      <p class="hiw-body">El precio es por bay. Si venís en grupo, añade jugadores extra por 5€ por jugador por hora.</p>
+    </div>
+
+    <div class="hiw-step">
+      <span class="hiw-n">05</span>
+      <span class="hiw-title">¿Necesitas palos?</span>
+      <p class="hiw-body">Alquila un set completo por 5€. Perfecto si vienes sin equipo o traes a alguien que se estrena.</p>
+    </div>
+
+    <div class="hiw-step">
+      <span class="hiw-n">06</span>
+      <span class="hiw-title">Confirma y juega</span>
+      <p class="hiw-body">Paga online y listo. Te esperamos en Calle María Cubí 26. Sin dress code, sin pretensiones.</p>
+    </div>
+
+    <div class="hiw-cta">
+      <a href="https://albaplay.com/en/venue/smyle-golf-barcelona" target="_blank">Reservar ahora →</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ═══ IMAGE — Bay 01 ════════════════════════════════════ -->
+<div class="img-wrap rv">
+  <div class="img-block" data-label="Smyle® · Bay 01 · La Ventana"></div>
+  <p class="img-caption img-caption-c">La Ventana — Bay 01 · Uneekor + GSPro · Full Swing · Hasta 6 jugadores</p>
+</div>
+
+<div style="height:56px;"></div>
+
+<!-- ═══ IMAGE PAIR — Bays 02 & 03 ════════════════════════ -->
+<div class="img-pair rv">
+  <div class="img-pair-item">
+    <div class="img-block" data-label="Smyle® · Bay 02 · La Compartida"></div>
+    <p class="img-caption">La Compartida — Bay 02 · Cancha Social · Solo Hierros · 20–40€/h</p>
+  </div>
+  <div class="img-pair-item">
+    <div class="img-block" data-label="Smyle® · Bay 03 · La Esquina"></div>
+    <p class="img-caption">La Esquina — Bay 03 · Privada · Full Swing · 20–40€/h</p>
+  </div>
+</div>
+
+<div style="height:56px;"></div>
+
+<!-- ═══ IMAGE PAIR — Short Game & Community ══════════════ -->
+<div class="img-pair rv">
+  <div class="img-pair-item">
+    <div class="img-block" data-label="Smyle® · Putting & Approach"></div>
+    <p class="img-caption">Zona de Putting & Approach · Short Game · Centro de Barcelona</p>
+  </div>
+  <div class="img-pair-item">
+    <div class="img-block" data-label="Smyle® · Comunidad & Eventos"></div>
+    <p class="img-caption">Comunidad Smyle · Torneos Semanales · Eventos Mensuales</p>
+  </div>
+</div>
+
+<div style="height:56px;"></div>
+
+<!-- ═══ EVENTS ════════════════════════════════════════════ -->
+<div class="ev-section">
+
+  <span class="ev-section-label">Eventos — SIM Semanal</span>
+
+  <div class="ev-row rv">
+    <div>
+      <span class="ev-name">Tuesday Night League</span>
+      <span class="ev-detail">Martes · 19:00–21:00 · Smyle Clubhouse · Stroke Play · 8 plazas</span>
+    </div>
+    <div class="ev-right">
+      <span class="ev-price">10€</span>
+      <span class="ev-pnote">por jugador</span>
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/events" class="ev-cta" target="_blank">Inscribirse →</a>
+    </div>
+  </div>
+
+  <div class="ev-row rv">
+    <div>
+      <span class="ev-name">Thursday P&amp;P</span>
+      <span class="ev-detail">Jueves · 19:00–21:00 · Smyle Clubhouse · Stableford · Cash prizes</span>
+    </div>
+    <div class="ev-right">
+      <span class="ev-price">10€</span>
+      <span class="ev-pnote">por jugador</span>
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/events" class="ev-cta" target="_blank">Inscribirse →</a>
+    </div>
+  </div>
+
+  <div class="ev-row rv">
+    <div>
+      <span class="ev-name">Friday 8-Man Scramble</span>
+      <span class="ev-detail">Viernes · 19:00–21:00 · Smyle Clubhouse · Scramble 4×2 · Social</span>
+    </div>
+    <div class="ev-right">
+      <span class="ev-price">10€</span>
+      <span class="ev-pnote">por jugador</span>
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/events" class="ev-cta" target="_blank">Inscribirse →</a>
+    </div>
+  </div>
+
+  <span class="ev-section-label" style="padding-top:48px;">Eventos — On Course Mensual</span>
+
+  <div class="ev-row rv">
+    <div>
+      <span class="ev-name">2-Man Team Scramble</span>
+      <span class="ev-detail">Primer Sábado del mes · Caldes Golf · Scramble por parejas · Green fee incluido</span>
+    </div>
+    <div class="ev-right">
+      <span class="ev-price">160€</span>
+      <span class="ev-pnote">por equipo</span>
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/events" class="ev-cta" target="_blank">Reservar plaza →</a>
+    </div>
+  </div>
+
+  <div class="ev-row rv">
+    <div>
+      <span class="ev-name">Singles Stableford</span>
+      <span class="ev-detail">Último Sábado del mes · Golf Montanya · Individual · Green fee incluido</span>
+    </div>
+    <div class="ev-right">
+      <span class="ev-price">100€</span>
+      <span class="ev-pnote">por jugador</span>
+      <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/events" class="ev-cta" target="_blank">Reservar plaza →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <a href="#top" class="foot-top">Back to top ↑</a>
+  <p class="foot-body">
+    Club de Golf Urbano · Calle María Cubí 26 · 08006 Barcelona · Est. 2024<br>
+    hello@smyle.golf · +34 650 219 335 · <a href="https://www.instagram.com/smylegolf" target="_blank" style="color:inherit;">Instagram</a>
+  </p>
+</footer>
+
+<script>
+/* ── CLOCK ── */
+function tick() {
+  const t = new Date().toLocaleTimeString('es-ES', {
+    timeZone:'Europe/Madrid', hour12:false,
+    hour:'2-digit', minute:'2-digit', second:'2-digit'
+  });
+  document.getElementById('clock').textContent = t;
+}
+tick(); setInterval(tick, 1000);
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.06, rootMargin:'0px 0px -24px 0px' });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
