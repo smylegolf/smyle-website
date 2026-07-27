@@ -80,7 +80,7 @@ img { display:block; max-width:100%; }
   display: block;
   white-space: nowrap; overflow:hidden; text-overflow:ellipsis;
 }
-.nl-m { color: var(--mid); }
+.nl-m { color: var(--text); }
 .ncta { font-weight:700; letter-spacing:.04em; }
 
 /* Product menu bar */
@@ -98,15 +98,15 @@ img { display:block; max-width:100%; }
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: var(--text);
   white-space: nowrap;
   padding: 0 22px;
-  transition: color .2s;
+  transition: opacity .2s;
 }
 .nm-link:first-child { padding-left: 0; }
 .nm-link:last-child { padding-right: 0; }
 .nm-link:not(:last-child) { border-right: 1px solid rgba(238,228,214,.14); }
-.nm-link:hover { color: var(--text); }
+.nm-link:hover { opacity: .55; }
 
 /* ─── HERO ────────────────────────────────────────────────── */
 .hero {
@@ -180,14 +180,14 @@ img { display:block; max-width:100%; }
   font-size: 1.5rem; font-weight:400;
   color: var(--text); line-height:1.7;
 }
-.i-text-m { color: var(--mid); }
+.i-text-m { color: var(--text); }
 .i-link {
   display:block; font-size:1.5rem; font-weight:400;
   color: var(--text); line-height:2.0;
   transition: color .2s;
 }
 .i-link:hover { color: #fff; }
-.i-link-m { color: var(--mid); }
+.i-link-m { color: var(--text); }
 .i-gap { height: 24px; }
 .i-em {
   font-family: 'EN',serif;
@@ -205,7 +205,7 @@ img { display:block; max-width:100%; }
 }
 .i-lmeta {
   font-size: 1.25rem; font-weight:400;
-  color: var(--mid); display:block; line-height:1.5;
+  color: var(--text); display:block; line-height:1.5;
 }
 .i-track-label {
   font-size: 1.1rem; font-weight:500; color: var(--faint);
@@ -241,7 +241,7 @@ img { display:block; max-width:100%; }
 }
 .hiw-body {
   font-size: 1.35rem; font-weight: 400;
-  color: var(--mid); line-height: 1.65;
+  color: var(--text); line-height: 1.65;
 }
 .hiw-cta { margin-top: 56px; grid-column: 1 / -1; }
 .hiw-cta a {
@@ -272,7 +272,7 @@ img { display:block; max-width:100%; }
 }
 .img-caption {
   padding: 12px 0 0;
-  font-size: 1.3rem; font-weight:400; color: var(--mid); font-style: italic;
+  font-size: 1.3rem; font-weight:400; color: var(--text); font-style: italic;
 }
 .img-caption-c { text-align:center; }
 .img-pair {
@@ -315,7 +315,7 @@ details[open] .faq-q::after { content: '−'; }
 .faq-a {
   padding: 0 0 24px;
   font-size: 1.5rem; font-weight: 400;
-  color: var(--mid); line-height: 1.75;
+  color: var(--text); line-height: 1.75;
 }
 .faq-a p { margin-bottom: 10px; }
 .faq-a p:last-child { margin-bottom: 0; }
@@ -333,7 +333,7 @@ details[open] .faq-q::after { content: '−'; }
 .foot-top:hover { opacity:.5; }
 .foot-body {
   font-size: 1.3rem; font-weight:400;
-  color: var(--mid); font-style:italic; line-height:2.1;
+  color: var(--text); font-style:italic; line-height:2.1;
 }
 .foot-body a { color:inherit; text-decoration:none; transition: color .2s; }
 .foot-body a:hover { color: var(--text); }
@@ -408,7 +408,7 @@ details[open] .faq-q::after { content: '−'; }
     <a href="https://albaplay.com/en/venue/smyle-golf-barcelona" class="nm-link" target="_blank">Prices</a>
     <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/offers/membership" class="nm-link" target="_blank">Membership</a>
     <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/events" class="nm-link" target="_blank">Events</a>
-    <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/instruction/smyle-golf/products" class="nm-link" target="_blank">Classes</a>
+    <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/instruction" class="nm-link" target="_blank">Classes</a>
     <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/offers/gift-certificates" class="nm-link" target="_blank">Gift Card</a>
   </div>
 
@@ -462,11 +462,11 @@ details[open] .faq-q::after { content: '−'; }
   <!-- Col 3: The Bays -->
   <div class="rv">
     <span class="i-label">B — The Bays</span>
-    <p class="i-text">Full-swing bays with world-class tech. Practice your game, play iconic courses, or just relax and unwind after work.</p>
+    <p class="i-text">Book your bay, bring the crew — add extra players for €5/h — and rent a full set of clubs for €5 if you need them. Then it's just you, world-class tech and iconic courses: come practice, play and improve.</p>
     <div class="i-gap"></div>
-    <p class="i-text i-text-m">La Ventana — Private · 6 pax<br>€30 off-peak · €60 peak</p>
+    <p class="i-text i-text-m">La Ventana — Private · 6 pax<br>€20 off-peak · €50 peak</p>
     <div class="i-gap" style="height:10px;"></div>
-    <p class="i-text i-text-m">La Compartida — Social · 4 pax<br>€20 off-peak · €40 peak</p>
+    <p class="i-text i-text-m">La Compartida — Shared · per player<br>€20 off-peak · €30 peak</p>
     <div class="i-gap" style="height:10px;"></div>
     <p class="i-text i-text-m">La Esquina — Private · 4 pax<br>€20 off-peak · €40 peak</p>
     <div class="i-gap"></div>
@@ -482,23 +482,33 @@ details[open] .faq-q::after { content: '−'; }
     <div class="i-gap"></div>
     <span class="i-track-label">What's on</span>
     <div class="i-listing">
-      <span class="i-ltitle">Intro Session</span>
-      <span class="i-lmeta">Perfect for first-timers · Hit a ball in under 10 minutes</span>
+      <span class="i-ltitle">Quick Swing Fix</span>
+      <span class="i-lmeta">€20 · A fast, focused fix for your swing</span>
     </div>
     <div class="i-listing">
       <span class="i-ltitle">Private Lesson</span>
-      <span class="i-lmeta">1-on-1 with a PGA pro · All levels welcome</span>
+      <span class="i-lmeta">€70 · 1-on-1 with a PGA pro</span>
     </div>
     <div class="i-listing">
-      <span class="i-ltitle">Kids' Classes</span>
-      <span class="i-lmeta">Juniors welcome · With or without parents</span>
+      <span class="i-ltitle">On Course Lesson</span>
+      <span class="i-lmeta">€80 · Play a virtual course with your coach</span>
     </div>
     <div class="i-listing">
-      <span class="i-ltitle">Group Workshops</span>
-      <span class="i-lmeta">Social · Affordable · No pressure</span>
+      <span class="i-ltitle">Kids Lesson</span>
+      <span class="i-lmeta">€30 · Juniors welcome</span>
     </div>
     <div class="i-gap"></div>
-    <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/instruction/smyle-golf/products" class="i-link" target="_blank" style="font-weight:700;">Book a class →</a>
+    <span class="i-track-label">Value Packs</span>
+    <div class="i-listing">
+      <span class="i-ltitle">Beginner Pack</span>
+      <span class="i-lmeta">€240 · 3 classes + 3h private practice · Save €90</span>
+    </div>
+    <div class="i-listing">
+      <span class="i-ltitle">5-Hour Pack</span>
+      <span class="i-lmeta">€250 · 5h of private lessons · Save €100</span>
+    </div>
+    <div class="i-gap"></div>
+    <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/instruction" class="i-link" target="_blank" style="font-weight:700;">Book a class →</a>
   </div>
 
   <!-- Col 5: Memberships -->
@@ -601,7 +611,7 @@ details[open] .faq-q::after { content: '−'; }
 <div class="img-pair rv">
   <div class="img-pair-item">
     <div class="img-block" data-label="Smyle® · Bay 02 · La Compartida"></div>
-    <p class="img-caption">La Compartida — Bay 02 · Social Bay · Irons & Short Game · €20–40/h</p>
+    <p class="img-caption">La Compartida — Bay 02 · Shared Bay · Irons & Short Game · €20–30/h</p>
   </div>
   <div class="img-pair-item">
     <div class="img-block" data-label="Smyle® · Bay 03 · La Esquina"></div>
@@ -656,12 +666,13 @@ details[open] .faq-q::after { content: '−'; }
       <div class="faq-a">
         <p>Yes. Relaxed, accessible coaching for all levels. We offer:</p>
         <ul>
-          <li>Intro sessions for beginners</li>
-          <li>Kids' classes (with or without parents)</li>
-          <li>Private 1-on-1 lessons</li>
-          <li>Group workshops — fun, social, no pressure, affordable</li>
+          <li>Quick Swing Fix — a fast, focused fix (€20)</li>
+          <li>Private Lesson — 1-on-1 with a PGA pro (€70)</li>
+          <li>On Course Lesson — play a virtual course with your coach (€80)</li>
+          <li>Kids Lesson — juniors welcome (€30)</li>
         </ul>
-        <p style="margin-top:12px;"><a href="https://albaplay.com/es/venue/smyle-golf-barcelona/instruction/smyle-golf/products" target="_blank">Browse all classes →</a></p>
+        <p style="margin-top:12px;">Prefer to save? Check our <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/instruction/smyle-golf/vouchers" target="_blank">value packs</a> — up to 29% off.</p>
+        <p style="margin-top:12px;"><a href="https://albaplay.com/en/venue/smyle-golf-barcelona/instruction" target="_blank">Browse all classes →</a></p>
       </div>
     </details>
 
@@ -704,7 +715,7 @@ details[open] .faq-q::after { content: '−'; }
     <details class="faq-item">
       <summary class="faq-q">I've never played golf — can I come?</summary>
       <div class="faq-a">
-        <p>Yes — beginners are always welcome at Smyle. We do ask that first-timers book an <a href="https://albaplay.com/es/venue/smyle-golf-barcelona/instruction/smyle-golf/products" target="_blank">intro session</a> before their first regular session. It's a quick way to learn the basics, pick up some golf etiquette, and make sure everyone plays safely and confidently.</p>
+        <p>Yes — beginners are always welcome at Smyle. We do ask that first-timers book a <a href="https://albaplay.com/en/venue/smyle-golf-barcelona/instruction/smyle-golf/vouchers" target="_blank">First Timer session</a> before their first regular session. It's a quick way to learn the basics, pick up some golf etiquette, and make sure everyone plays safely and confidently.</p>
       </div>
     </details>
 
